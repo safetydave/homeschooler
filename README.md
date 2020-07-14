@@ -19,5 +19,7 @@ Todos:
 1. Satisfy more awesomeness criteria
 2. Reduce the search space for better performance, by...
 3. ... exclude visited from candidates
-4. ... exploit symmetry of assignments, eg swapping assignments between two children is equivalent state
-5. ... exploit symmetry of tasks (not relevant above) where tasks of equal size can be swapped
+4. ... exclude infeasible (eg not every child has a task) from candidates
+5. ... exploit symmetry of assignments, eg swapping assignments between two children is equivalent state
+6. ... exploit symmetry of tasks (not relevant above) where tasks of equal size can be swapped
+7. ... then it probably looks more like BFS :D
