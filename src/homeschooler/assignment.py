@@ -1,5 +1,5 @@
-# heuristic for a good place to start
-def assign_round_robin_oscillating(tasks, n):
+# assignment heuristic for a good place to start - round robin oscillating
+def assign_rro(tasks, n):
     assignment = [-1] * len(tasks.t)
     i = 0
     di = 1
@@ -16,12 +16,7 @@ def assign_round_robin_oscillating(tasks, n):
     return tuple(assignment)
 
 
-class Assignment:
-
-    def __init__(self, a):
-        self.a = a
-
-    # Neighbours have just one task assigned to a different child
-    def neighbours(self, n):
-        return [tuple((a + r * (i == j)) % n for i, a in enumerate(self.a))
-                for r in range(1, n) for j, _ in enumerate(self.a)]
+# neighbours have just one task assigned to a different child
+def neighbours(assignment, n):
+    return [tuple((a + r * (i == j)) % n for i, a in enumerate(assignment))
+            for r in range(1, n) for j, _ in enumerate(assignment)]
