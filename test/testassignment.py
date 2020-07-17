@@ -3,7 +3,7 @@ import unittest
 from homeschooler.assignment import Assignment
 
 
-class TestTasks(unittest.TestCase):
+class TestAssignment(unittest.TestCase):
 
     def setUp(self):
         self.a = (0, 0, 1)
