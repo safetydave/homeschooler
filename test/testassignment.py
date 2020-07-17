@@ -11,6 +11,6 @@ class TestAssignment(unittest.TestCase):
     def test_neighbours(self):
         assignment = Assignment(self.a)
         neighbours = assignment.neighbours(2)
-        self.assertTrue(neighbours[0], (1, 0, 1))
-        self.assertTrue(neighbours[1], (0, 1, 1))
-        self.assertTrue(neighbours[2], (0, 0, 0))
+        self.assertEqual(neighbours[0], (1, 0, 1))
+        self.assertEqual(neighbours[1], (0, 1, 1))
+        self.assertEqual(neighbours[2], (0, 0, 0))
