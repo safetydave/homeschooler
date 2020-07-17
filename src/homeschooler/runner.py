@@ -1,6 +1,7 @@
 from homeschooler.tasks import Tasks
 
 
+# todo validate input
 def parse_tasks(task_definition):
     t = {}
     for line in task_definition:
@@ -11,7 +12,6 @@ def parse_tasks(task_definition):
 
 
 class Runner:
-
     NUM_CHILDREN = 3
 
     def __init__(self):
@@ -22,4 +22,3 @@ class Runner:
 
     def run(self):
         print(self.tasks.t)
-
