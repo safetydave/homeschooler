@@ -1,3 +1,5 @@
+import math
+import random
 from homeschooler.assignment import neighbours
 
 
@@ -21,5 +23,25 @@ def bfs(evaluator, assignment, steps):
             if n not in visited:
                 visited.append(n)
                 queue.append(n)
+
+    return solved, candidate, k
+
+
+# simulated annealing solver stochastic exploring neighbours with reducing temp
+def sim_anneal(evaluator, assignment, steps):
+    solved = False
+    candidate = assignment
+    e0 = evaluator.energy(candidate)
+    for k in range(steps):
+        t = (k + 1.0) / steps
+        if e0 == 0:
+            solved = True
+            break
+        alternative = random.choice(neighbours(candidate, evaluator.n))
+        e1 = evaluator.energy(alternative)
+        prob_accept = 1 if e1 < e0 else math.exp(-(e1 - e0) / t)
+        if prob_accept >= random.random():
+            candidate = alternative
+            e0 = e1
 
     return solved, candidate, k

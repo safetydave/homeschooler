@@ -1,6 +1,6 @@
 from homeschooler.assignment import assign_rro
 from homeschooler.evaluator import Evaluator
-from homeschooler.solver import bfs
+from homeschooler.solver import bfs, sim_anneal
 from homeschooler.tasks import Tasks
 
 
