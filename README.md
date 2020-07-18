@@ -48,6 +48,7 @@ Also an exploratory [notebook](https://github.com/safetydave/homeschooler/blob/m
 
 Todos:
 
+0. Todos in `runner.py`
 1. Satisfy more awesomeness criteria
 2. Tune solver selection & parameters like temperature
 3. Visualise search

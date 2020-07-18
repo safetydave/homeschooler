@@ -25,6 +25,7 @@ class Runner:
         self.tasks = Tasks(t)
 
     def run(self):
+        # todo validate solution feasible with pre-checks
         evaluator = Evaluator(self.tasks, Runner.NUM_CHILDREN)
         initial_assignment = assign_rro(self.tasks, Runner.NUM_CHILDREN)
         out = bfs(evaluator, initial_assignment, 2000)
