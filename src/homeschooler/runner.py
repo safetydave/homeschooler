@@ -25,9 +25,16 @@ class Runner:
         self.tasks = Tasks(t)
 
     def run(self):
-        # todo validate solution feasible with pre-checks
-        evaluator = Evaluator(self.tasks, Runner.NUM_CHILDREN)
-        initial_assignment = assign_rro(self.tasks, Runner.NUM_CHILDREN)
+        n = Runner.NUM_CHILDREN
+
+        no_solution = not (self.tasks.can_count_split(n) and self.tasks.can_total_split(n))\
+                      or self.tasks.has_oversize_tasks(n)
+        if no_solution:
+            print('No')
+            return
+
+        evaluator = Evaluator(self.tasks, n)
+        initial_assignment = assign_rro(self.tasks, n)
         out = bfs(evaluator, initial_assignment, 2000)
         if out[0]:
             print('Yes')
