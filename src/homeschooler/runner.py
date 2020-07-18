@@ -24,12 +24,14 @@ class Runner:
         t = parse_tasks(task_definition)
         self.tasks = Tasks(t)
 
+    def has_possible_solution(self, n):
+        return self.tasks.can_count_split(n)\
+               and self.tasks.can_total_split(n)\
+               and not self.tasks.has_oversize_tasks(n)
+
     def run(self):
         n = Runner.NUM_CHILDREN
-
-        no_solution = not (self.tasks.can_count_split(n) and self.tasks.can_total_split(n))\
-                      or self.tasks.has_oversize_tasks(n)
-        if no_solution:
+        if not self.has_possible_solution(n):
             print('No')
             return
 
