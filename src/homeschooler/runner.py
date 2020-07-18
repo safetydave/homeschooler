@@ -1,3 +1,6 @@
+from homeschooler.assignment import assign_rro
+from homeschooler.evaluator import Evaluator
+from homeschooler.solver import bfs
 from homeschooler.tasks import Tasks
 
 
@@ -17,8 +20,16 @@ class Runner:
     def __init__(self):
         self.tasks = None
 
-    def set_tasks(self, t):
+    def set_tasks(self, task_definition):
+        t = parse_tasks(task_definition)
         self.tasks = Tasks(t)
 
     def run(self):
-        print(self.tasks.t)
+        evaluator = Evaluator(self.tasks, Runner.NUM_CHILDREN)
+        initial_assignment = assign_rro(self.tasks, Runner.NUM_CHILDREN)
+        out = bfs(evaluator, initial_assignment, 2000)
+        if out[0]:
+            print('Yes')
+            print(evaluator.pretty_format(out[1]))
+        else:
+            print('No')

@@ -15,6 +15,6 @@ class TestAssignment(unittest.TestCase):
         self.assertEqual(ns[1], (0, 1, 1))
         self.assertEqual(ns[2], (0, 0, 0))
 
-    def test_assign_round_robin_oscillating(self):
+    def test_assign_rro(self):
         a = assign_rro(Tasks(Tasks.TASKS_2_YES), 2)
         self.assertEqual(a, (0, 1, 1))

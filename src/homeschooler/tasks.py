@@ -12,7 +12,7 @@ class Tasks:
         self.efforts = [t[1] for t in self.t.items()]
         self.total_effort = sum(self.efforts)
         self.keys_asc = sorted(list(self.t.keys()))
-        self.t_efforts_desc = {k: v for k, v in reversed(sorted(self.t.items(), key=lambda x: x[1]))}
+        self.t_efforts_desc = [(k, v) for k, v in reversed(sorted(self.t.items(), key=lambda x: x[1]))]
 
     def can_count_split(self, n):
         return len(self.t) >= n

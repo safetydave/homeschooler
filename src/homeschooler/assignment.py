@@ -3,7 +3,7 @@ def assign_rro(tasks, n):
     assignment = [-1] * len(tasks.t)
     i = 0
     di = 1
-    for k in tasks.t_efforts_desc:
+    for k, _ in tasks.t_efforts_desc:
         j = tasks.keys_asc.index(k)
         assignment[j] = i
         i = i + di
