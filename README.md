@@ -21,7 +21,7 @@ python src/homeschooler.py < sample_tasks.txt
 
 ### Input
 
-Input is read from stdin, terminated by EOF. Input format is a colon-separated list of uniquely labelled task efforts over one or more lines, with individual tasks separated by whitespace. For example:
+Input is read from stdin, terminated by EOF. Input format is a list of uniquely labelled task efforts (`label:effort`), over one or more lines, with individual tasks separated by whitespace. For example:
 
 ```
 A:5 B:4 C:1 D:2 E:7 F:8 G:3
