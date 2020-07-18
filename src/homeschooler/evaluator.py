@@ -10,7 +10,7 @@ class Evaluator:
 
     def loads(self, assignment):
         tks = self.tasks.keys_asc
-        return tuple(sum([self.tasks.t[tks[i]] for i, t in enumerate(assignment.a) if t == c])
+        return tuple(sum([self.tasks.t[tks[i]] for i, t in enumerate(assignment) if t == c])
                      for c in range(self.n))
 
     def energy(self, assignment):
@@ -25,7 +25,7 @@ class Evaluator:
         ls = self.loads(assignment)
         pretty_strings = []
         for i in range(self.n):
-            ca = [j for j, c in enumerate(assignment.a) if c == i]
+            ca = [j for j, c in enumerate(assignment) if c == i]
             ca_strings = ['Task {} ({} points)'.format(tks[j], self.tasks.t[tks[j]]) for j in ca]
             ca_str = ' + '.join(ca_strings)
             pretty_strings.append('Child {}: {} = {} points'.format(i + 1, ca_str, ls[i]))

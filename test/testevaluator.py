@@ -1,6 +1,5 @@
 import unittest
 
-from homeschooler.assignment import Assignment
 from homeschooler.evaluator import Evaluator
 from homeschooler.tasks import Tasks
 
@@ -10,8 +9,8 @@ class TestEvaluator(unittest.TestCase):
     def setUp(self):
         self.t2y = Tasks(Tasks.TASKS_2_YES)
         self.evaluator = Evaluator(self.t2y, 2)
-        self.pos = Assignment((0, 1, 1))
-        self.neg = Assignment((0, 0, 1))
+        self.pos = (0, 1, 1)
+        self.neg = (0, 0, 1)
 
     def test_loads(self):
         self.assertEqual(self.evaluator.loads(self.pos), (5, 5))
