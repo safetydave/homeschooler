@@ -1,7 +1,7 @@
 # homeschooler
 ThoughtWorks Shokunin Challenge July 2020
 
-Solves the homeschool task allocation problem.
+Solves the homeschool task allocation problem, and more (see More section).
 
 ## Running Submission
 
@@ -39,16 +39,15 @@ Child 3: Task A (5 points) + Task B (4 points) + Task C (1 points) = 10 points
 
 ## More
 
-Run the [notebook](https://github.com/safetydave/homeschooler/blob/main/homeschooler.ipynb) to execute the solution and extensions.
+Designed with maximum ease and flexibility of homeschooling in mind:
 
-Solution is stochastic. Best heuristics (see comparison in notebook) solve sample problem in median ~36 steps (is that "quick" as per problem statement?)
+* Children set to 3 but configurable 
+* Two solvers available: breadth first search & simulated annealing
+
+Also an exploratory [notebook](https://github.com/safetydave/homeschooler/blob/main/homeschooler.ipynb) with a third bonus brute force solver.
 
 Todos:
 
 1. Satisfy more awesomeness criteria
-2. Reduce the search space for better performance, by...
-3. ... exclude visited from candidates
-4. ... exclude infeasible (eg not every child has a task) from candidates
-5. ... exploit symmetry of assignments, eg swapping assignments between two children is equivalent state
-6. ... exploit symmetry of tasks (not relevant above) where tasks of equal size can be swapped
-7. ... then it probably looks more like BFS :D
+2. Tune solver selection & parameters like temperature
+3. Visualise search
