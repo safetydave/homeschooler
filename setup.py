@@ -10,5 +10,5 @@ setup(name='homeschooler',
       python_requires='>=3.6.0',
       packages=find_packages("src"),
       package_dir={"": "src"},
-      install_requires=['numpy'],
+      install_requires=['numpy', 'click'],
       zip_safe=False)

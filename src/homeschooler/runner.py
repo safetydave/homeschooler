@@ -1,3 +1,5 @@
+import click
+
 from homeschooler.assignment import assign_rro
 from homeschooler.evaluator import Evaluator
 from homeschooler.solver import bfs, sim_anneal
@@ -29,15 +31,18 @@ class Runner:
                and self.tasks.can_total_split(n)\
                and not self.tasks.has_oversize_tasks(n)
 
-    def run(self):
-        n = Runner.NUM_CHILDREN
+    def run(self, solver, n, steps):
         if not self.has_possible_solution(n):
             print('No')
             return
 
         evaluator = Evaluator(self.tasks, n)
         initial_assignment = assign_rro(self.tasks, n)
-        out = bfs(evaluator, initial_assignment, 2000)
+        solver_function = bfs
+        if solver == 'sa':
+            solver_function = sim_anneal
+        out = solver_function(evaluator, initial_assignment, steps)
+
         if out[0]:
             print('Yes')
             print(evaluator.pretty_format(out[1]))

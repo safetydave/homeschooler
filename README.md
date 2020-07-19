@@ -1,7 +1,7 @@
 # homeschooler
 ThoughtWorks Shokunin Challenge July 2020
 
-Solves the homeschool task allocation problem, and more (see More section).
+Solves the homeschool task allocation problem.
 
 ## Set up
 
@@ -27,6 +27,18 @@ Input is read from stdin, terminated by EOF. Input format is a list of uniquely 
 A:5 B:4 C:1 D:2 E:7 F:8 G:3
 ```
 
+### Options
+
+Note you can specify solver (breadth first search or simulated annealing), number of children, and max number of solution steps via command line options.
+
+```
+Options:
+  --solver TEXT       Solver type. bfs or sa.
+  --children INTEGER  Number of children.
+  --steps INTEGER     Maximum solver steps.
+  --help              Show this message and exit.
+``` 
+
 ### Results
 
 Sample results:
@@ -47,16 +59,26 @@ python -m unittest discover .
 
 ## More
 
-Designed with maximum ease and flexibility of homeschooling in mind:
+### Highlights
 
-* Children set to 3 but configurable 
-* Two solvers available: breadth first search & simulated annealing
+Designed for the discerning homeschooler:
 
-Also an exploratory [notebook](https://github.com/safetydave/homeschooler/blob/main/homeschooler.ipynb) with a third bonus brute force solver.
+* Children set to 3 but configurable, for whenever a different configuration of children is appealing
+* Two solvers available - breadth first search & simulated annealing - to suit your homeschooling mood. Whether you feel like you're on the frontier, or it's just a roll of the dice
+* Max number of solve steps is configurable, if you need an answer, any answer, quick
 
-Todos:
+### Notes
 
-0. Todos in `runner.py`
-1. Satisfy more awesomeness criteria
-2. Tune solver selection & parameters like temperature
-3. Visualise search
+Here's how I landed on this implementation:
+
+* I first thought of some sort of swapping algorithm to balance pairs of tasks, but realised there were scenarios requiring complex multi-swaps, taking us further away from the solution in the process
+* Thinking about optimisation, I was keen to try simulated annealing, so defined states & neighbours
+* I played around with different hyperparams for simulated annealing, and compared it to brute force approach
+* Decided instead to implement breadth first search as it was looking more like a graph problem and I had all the ingredients
+* Some of this in the exploratory [notebook](https://github.com/safetydave/homeschooler/blob/main/homeschooler.ipynb), which also includes the bonus brute force solver, for those days you know which
+
+What I would do next:
+
+* Write a go script
+* Experiment more with symmetry (n! symmetrical solutions for n children?) & limiting state space
+* Visualise state space and search
