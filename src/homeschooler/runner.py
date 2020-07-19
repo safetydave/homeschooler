@@ -32,7 +32,7 @@ class Runner:
                and not self.tasks.has_oversize_tasks(n)
 
     def run(self, solver, n, steps):
-        if not self.has_possible_solution(n):
+        if n <= 0 or not self.has_possible_solution(n):
             print('No')
             return
 

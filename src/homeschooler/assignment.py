@@ -8,10 +8,10 @@ def assign_rro(tasks, n):
         assignment[j] = i
         i = i + di
         if i >= n:
-            i = i - di
+            i = n - 1
             di = -1
         if i <= 0:
-            i = i - di
+            i = 0
             di = 1
     return tuple(assignment)
 
