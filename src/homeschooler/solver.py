@@ -32,6 +32,7 @@ def sim_anneal(evaluator, assignment, steps):
     solved = False
     candidate = assignment
     e0 = evaluator.energy(candidate)
+    k = 0
     for k in range(steps):
         t = (k + 1.0) / steps
         if e0 == 0:
