@@ -30,7 +30,7 @@ class TestEvaluator(unittest.TestCase):
         # three children
         self.evaluator_4_3n = Evaluator(self.t4y, 3)
         self.initial_assignment_4_3n = assign_rro(self.t4y, 3)
-        # three children
+        # four children
         self.evaluator_4_4y = Evaluator(self.t4y, 4)
         self.initial_assignment_4_4y = assign_rro(self.t4y, 4)
 
