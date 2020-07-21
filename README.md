@@ -3,6 +3,8 @@ ThoughtWorks Shokunin Challenge July 2020
 
 Solves the homeschool task allocation problem.
 
+![Solution search visualisations](https://github.com/safetydave/homeschooler/blob/main/doc/search_viz.png?raw=true)
+
 ## Set up
 
 1. Clone this repo (to `./homeschooler`)
@@ -75,7 +77,7 @@ Here's how I landed on this implementation:
 * Thinking about optimisation, I was keen to try simulated annealing, so defined states & neighbours
 * I played around with different hyperparams for simulated annealing, and compared it to brute force approach
 * Decided instead to implement breadth first search as it was looking more like a graph problem and I had all the ingredients
-* Some of this in the exploratory [notebook](https://github.com/safetydave/homeschooler/blob/main/homeschooler.ipynb), which also includes the bonus brute force solver, for those days you know which
+* Some of this in the exploratory [notebook](https://github.com/safetydave/homeschooler/blob/main/doc/homeschooler.ipynb), which also includes the bonus brute force solver, for those days you know which
 
 What I would do next:
 
